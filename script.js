@@ -26,6 +26,9 @@ function clickBtn() {
                 console.log('Number clicked: ', buttons[i].value);
                 inputNumber(buttons[i].value);
                 updateDisplay();
+            } else if(buttons[i].classList.contains('clear')){
+                clearDisplay();
+                updateDisplay();
             }
         });
     }
@@ -49,4 +52,12 @@ function inputNumber(number) {
             displayValue += number;
         }
     }
+}
+
+function clearDisplay(){
+    displayValue = '0';
+    operand1 = null;
+    operand2 = null;
+    operator1 = null;
+    result = null;  
 }
