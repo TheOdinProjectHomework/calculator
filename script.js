@@ -78,16 +78,34 @@ function inputOperator(operator){
 function equals() {
     operand2 = displayValue;
     result = calculate(operator1, Number(operand1), Number(operand2));
-    displayValue = result;
+    displayValue = parseFloat(result.toFixed(3));
 }
 
 function calculate(sign, x, y) {
     console.log(`sign: ${sign}, x: ${x}, y: ${y}`);
     if(sign === '+') {
         return add(x, y);
+    } else if(sign === '-') {
+        return subtract(x, y);
+    } else if(sign === '*') {
+        return multiply(x,y);
+    } else if(sign === '/') {
+        return divide(x, y);
     }
 }
 
 function add(x, y) {
     return x + y;
+}
+
+function subtract(x, y) {
+    return x - y;
+}
+
+function multiply(x, y) {  
+    return x * y;
+}
+
+function divide(x, y) {
+    return x / y;
 }
