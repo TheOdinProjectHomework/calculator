@@ -35,6 +35,15 @@ function clickBtn() {
             } else if(buttons[i].classList.contains('equals')){
                 equals();
                 updateDisplay();
+            } else if(buttons[i].classList.contains('percent')){
+                percent(displayValue);
+                updateDisplay();
+            } else if(buttons[i].classList.contains('decimal')){
+                decimalPoint(buttons[i].value);
+                updateDisplay();
+            } else if(buttons[i].classList.contains('sign')){
+                sign(displayValue);
+                updateDisplay();
             }
         });
     }
@@ -78,7 +87,7 @@ function inputOperator(operator){
 function equals() {
     operand2 = displayValue;
     result = calculate(operator1, Number(operand1), Number(operand2));
-    displayValue = parseFloat(result.toFixed(3));
+    displayValue = parseFloat(result).toString();
 }
 
 function calculate(sign, x, y) {
@@ -107,5 +116,26 @@ function multiply(x, y) {
 }
 
 function divide(x, y) {
-    return x / y;
+    if(y === 0) {
+        return 'NaN';
+    } else {
+        return x / y;
+    }
+}
+
+function percent(x) {
+    displayValue = (x / 100).toString();
+}
+
+function decimalPoint(dec) {
+    if(displayValue === operand1 || displayValue === operand2) {
+        displayValue = '0';
+        displayValue += dec;
+    } else if(!displayValue.includes(dec)) {
+        displayValue += dec;
+    }
+}
+
+function sign(value) {
+    displayValue = (value * -1).toString();
 }
