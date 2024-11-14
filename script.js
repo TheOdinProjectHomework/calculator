@@ -29,6 +29,12 @@ function clickBtn() {
             } else if(buttons[i].classList.contains('clear')){
                 clearDisplay();
                 updateDisplay();
+            } else if(buttons[i].classList.contains('operator')){
+                inputOperator(buttons[i].value);
+                updateDisplay();
+            } else if(buttons[i].classList.contains('equals')){
+                equals();
+                updateDisplay();
             }
         });
     }
@@ -60,4 +66,28 @@ function clearDisplay(){
     operand2 = null;
     operator1 = null;
     result = null;  
+}
+
+function inputOperator(operator){
+    operator1 = operator;
+    operand1 = displayValue;
+    console.log("operator in use: " + operator);
+    console.log(`operand: ${operand1}`);
+}
+
+function equals() {
+    operand2 = displayValue;
+    result = calculate(operator1, Number(operand1), Number(operand2));
+    displayValue = result;
+}
+
+function calculate(sign, x, y) {
+    console.log(`sign: ${sign}, x: ${x}, y: ${y}`);
+    if(sign === '+') {
+        return add(x, y);
+    }
+}
+
+function add(x, y) {
+    return x + y;
 }
