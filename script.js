@@ -85,9 +85,13 @@ function inputOperator(operator){
 }
 
 function equals() {
-    operand2 = displayValue;
-    result = calculate(operator1, Number(operand1), Number(operand2));
-    displayValue = parseFloat(result).toString();
+    if(operator1 === null) {
+        displayValue = displayValue;
+    } else {
+        operand2 = displayValue;
+        result = calculate(operator1, Number(operand1), Number(operand2));
+        displayValue = parseFloat(result).toString();
+    }
 }
 
 function calculate(sign, x, y) {

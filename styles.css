@@ -4,6 +4,27 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #FBF4DB;
+}
+
+header {
+    text-align: center;
+    padding: 1em 0;
+}
+
+.operator, .equals {
+    background-color: #FC8F54;
+}
+
+.clear, .sign, .percent {
+    background-color: #AA5486;
+}
+
+.number, .decimal {
+    background-color: #FDE7BB;
+}
+
 .calculator {
     display: flex;
     min-height: 100vh;
@@ -12,7 +33,8 @@
 }
 
 .container {
-    border: 1px solid black;
+    border: 10px solid black;
+    border-radius: 5px;
     background-color: black;
     display: grid;
     grid-template-columns: repeat(4, 100px);
@@ -22,7 +44,7 @@
 
 #display {
     grid-column: 1 / -1;
-    background-color: antiquewhite;
+    background-color: #b2b9b7;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
